@@ -1,12 +1,12 @@
 # VFD Clock for OpenDeck
 
-Two Stream Deck keys, one for the hour and one for the minute, drawn like the InfoPanel VFD profiles: DSEG7 digits over unlit ghost segments, a phosphor halo, a silk legend chip, the rounded frame and the glass mesh.
+Stream Deck keys for the hour, the minute and the second, drawn like the InfoPanel VFD profiles: DSEG7 digits over unlit ghost segments, a phosphor halo, a silk legend chip, the rounded frame and the glass mesh.
 
 ## Actions
 
-The plugin has two actions, Hours and Minutes. Put them side by side to read the time across the two keys. Hours shows 24-hour time by default, or 12-hour time with an AM/PM indicator.
+The plugin has three actions, Hours, Minutes and Seconds. Put them side by side to read the time across the keys. Hours shows 24-hour time by default, or 12-hour time with an AM/PM indicator.
 
-Each key picks its own skin. Orange VFD, Blue VFD and Classic VFD use the same palettes as the InfoPanel profiles. Each key can also hide its HRS or MIN legend chip, which makes the digits bigger.
+Each key picks its own skin. Orange VFD, Blue VFD and Classic VFD use the same palettes as the InfoPanel profiles. Each key can also hide its HRS, MIN or SEC legend chip, which makes the digits bigger.
 
 ## Install
 
@@ -14,11 +14,11 @@ Each key picks its own skin. Orange VFD, Blue VFD and Classic VFD use the same p
 ./install.sh
 ```
 
-This copies the plugin into OpenDeck's plugin folder and restarts OpenDeck if it runs as a systemd user unit. Then drag **Hours** and **Minutes** from the VFD Clock category onto keys.
+This copies the plugin into OpenDeck's plugin folder and restarts OpenDeck if it runs as a systemd user unit. Then drag **Hours**, **Minutes** and **Seconds** from the VFD Clock category onto keys.
 
 ## Build
 
-The key faces are 648 pre-rendered PNGs in `com.emaspa.vfdclock.sdPlugin/imgs/<skin>/`, about 9 MB. The plugin is a small Node script that picks a face and sends it when the time or a setting changes.
+The key faces are 1008 pre-rendered PNGs in `com.emaspa.vfdclock.sdPlugin/imgs/<skin>/`, about 14 MB. The plugin is a small Node script that picks a face and sends it when the time or a setting changes.
 
 To render them again:
 

@@ -6,6 +6,7 @@ Writes <plugin-dir>/imgs/<skin>/<face>.png for every skin in vfd_palette.PALETTE
   h24_HH.png            hours, 24-hour
   h12_H_am|pm.png       hours, 12-hour with an AM/PM indicator
   m_MM.png              minutes
+  s_SS.png              seconds
 and the same with a "_bare" suffix (no legend chip, bigger digits).
 
 The look follows the InfoPanel VFD profiles (InfoPanel/tools/orange-vfd/gen_vfd.py):
@@ -117,6 +118,7 @@ def main():
                         os.path.join(d, f'h12_{h}_{ap}{sfx}.png'), optimize=True)
             for m in range(60):
                 face(p, f'{m:02d}', None if bare else 'MIN').save(os.path.join(d, f'm_{m:02d}{sfx}.png'), optimize=True)
+                face(p, f'{m:02d}', None if bare else 'SEC').save(os.path.join(d, f's_{m:02d}{sfx}.png'), optimize=True)
         print(skin, 'done')
 
 

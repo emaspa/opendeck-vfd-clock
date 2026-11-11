@@ -1,5 +1,5 @@
 // VFD Clock for OpenDeck (Stream Deck SDK compatible).
-// Two key actions, hours and minutes. Every face is pre-rendered by
+// Three key actions: hours, minutes and seconds. Every face is pre-rendered by
 // tools/gen_keys.py into imgs/<skin>/; the plugin only picks the right PNG
 // and sends it when the shown value or the settings change.
 
@@ -23,7 +23,7 @@ const SKINS = ["amber", "blue", "classic"];
 const host = new WebSocket(`ws://127.0.0.1:${port}`);
 const send = (msg) => { if (host.readyState === WebSocket.OPEN) host.send(JSON.stringify(msg)); };
 
-// context -> { kind: "hours" | "minutes", settings, shown }
+// context -> { kind: "hours" | "minutes" | "seconds", settings, shown }
 const contexts = new Map();
 const images = new Map(); // face path -> data URI
 
@@ -31,7 +31,9 @@ function faceFor(kind, settings, now) {
   const skin = SKINS.includes(settings.skin) ? settings.skin : "amber";
   const bare = settings.legend === false ? "_bare" : "";
   let name;
-  if (kind === "minutes") {
+  if (kind === "seconds") {
+    name = `s_${String(now.getSeconds()).padStart(2, "0")}`;
+  } else if (kind === "minutes") {
     name = `m_${String(now.getMinutes()).padStart(2, "0")}`;
   } else if (settings.format === "12") {
     const h = now.getHours();
@@ -65,9 +67,13 @@ function render(force = false) {
   }
 }
 
-// Check twice a second: cheap (a string compare per key) and it follows
-// suspend/resume and clock changes without any scheduling logic.
-setInterval(render, 500);
+// Wake just after each second boundary so the seconds key flips on time.
+// Recomputing the delay every tick follows suspend/resume and clock changes.
+function tick() {
+  render();
+  setTimeout(tick, 1005 - (Date.now() % 1000));
+}
+tick();
 
 host.onopen = () => send({ event: registerEvent, uuid: pluginUUID });
 host.onclose = () => process.exit(0);

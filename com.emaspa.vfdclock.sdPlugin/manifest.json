@@ -1,6 +1,6 @@
 {
 	"Name": "VFD Clock",
-	"Description": "Hours and minutes on two keys, drawn like the InfoPanel VFD skins (orange, blue, classic green).",
+	"Description": "Hours, minutes and seconds on separate keys, drawn like the InfoPanel VFD skins (orange, blue, classic green).",
 	"Author": "Emanuele Sparvoli",
 	"Version": "0.1.0",
 	"SDKVersion": 2,
@@ -31,6 +31,16 @@
 			"SupportedInMultiActions": false,
 			"PropertyInspectorPath": "propertyInspector/settings.html",
 			"States": [{ "Image": "icons/minutes", "ShowTitle": false }]
+		},
+		{
+			"Name": "Seconds",
+			"UUID": "com.emaspa.vfdclock.seconds",
+			"Icon": "icons/seconds",
+			"Tooltip": "Current second on a VFD display",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": false,
+			"PropertyInspectorPath": "propertyInspector/settings.html",
+			"States": [{ "Image": "icons/seconds", "ShowTitle": false }]
 		}
 	]
 }

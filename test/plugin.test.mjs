@@ -17,9 +17,10 @@ const shown = (msgs, ctx) => {
 };
 
 test("each key shows the face for the current time and settings", () => {
-  const msgs = run("2026-11-11T21:07:00", [
+  const msgs = run("2026-11-11T21:07:42", [
     ["hours", {}], ["minutes", {}], ["hours", { format: "12", skin: "blue" }],
     ["minutes", { skin: "classic", legend: false }], ["hours", { skin: "bogus" }],
+    ["seconds", { skin: "blue" }],
   ]);
   assert.equal(msgs[0].event, "registerPlugin");
   assert.equal(shown(msgs, "k0"), face("imgs/amber/h24_21.png"));
@@ -27,6 +28,7 @@ test("each key shows the face for the current time and settings", () => {
   assert.equal(shown(msgs, "k2"), face("imgs/blue/h12_9_pm.png"));
   assert.equal(shown(msgs, "k3"), face("imgs/classic/m_07_bare.png"));
   assert.equal(shown(msgs, "k4"), face("imgs/amber/h24_21.png"));
+  assert.equal(shown(msgs, "k5"), face("imgs/blue/s_42.png"));
 });
 
 test("midnight and noon in 12-hour mode", () => {

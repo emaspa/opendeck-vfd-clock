@@ -9,7 +9,7 @@ rm -rf "$plugin/imgs"
 python3 "$here/tools/gen_keys.py" "$plugin"
 icons="$plugin/icons"
 mkdir -p "$icons"
-for pair in hours:h24_12 minutes:m_34; do
+for pair in hours:h24_12 minutes:m_34 seconds:s_56; do
   name=${pair%%:*}; face=${pair#*:}
   magick "$plugin/imgs/amber/$face.png" -resize 72x72 "$icons/$name.png"
   cp "$plugin/imgs/amber/$face.png" "$icons/$name@2x.png"
