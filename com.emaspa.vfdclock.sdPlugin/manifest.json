@@ -1,0 +1,36 @@
+{
+	"Name": "VFD Clock",
+	"Description": "Hours and minutes on two keys, drawn like the InfoPanel VFD skins (orange, blue, classic green).",
+	"Author": "Emanuele Sparvoli",
+	"Version": "0.1.0",
+	"SDKVersion": 2,
+	"CodePath": "bin/plugin.mjs",
+	"Icon": "icons/plugin",
+	"Category": "VFD Clock",
+	"CategoryIcon": "icons/category",
+	"OS": [
+		{ "Platform": "linux" }
+	],
+	"Actions": [
+		{
+			"Name": "Hours",
+			"UUID": "com.emaspa.vfdclock.hours",
+			"Icon": "icons/hours",
+			"Tooltip": "Current hour on a VFD display",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": false,
+			"PropertyInspectorPath": "propertyInspector/settings.html",
+			"States": [{ "Image": "icons/hours", "ShowTitle": false }]
+		},
+		{
+			"Name": "Minutes",
+			"UUID": "com.emaspa.vfdclock.minutes",
+			"Icon": "icons/minutes",
+			"Tooltip": "Current minute on a VFD display",
+			"Controllers": ["Keypad"],
+			"SupportedInMultiActions": false,
+			"PropertyInspectorPath": "propertyInspector/settings.html",
+			"States": [{ "Image": "icons/minutes", "ShowTitle": false }]
+		}
+	]
+}

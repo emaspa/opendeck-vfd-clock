@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  :root { color-scheme: dark; }
+  body { font-family: sans-serif; background: #16181d; color: #e6e9f0; margin: 10px; font-size: 13px; }
+  label { display: block; margin: 12px 0 6px; color: #8b93a7; }
+  label.inline { display: flex; gap: 8px; align-items: center; color: #e6e9f0; }
+  select { width: 100%; box-sizing: border-box; background: #23262f; color: #e6e9f0;
+    border: 1px solid #3a3f4c; border-radius: 5px; padding: 6px; }
+  option { background: #23262f; }
+  [hidden] { display: none !important; }
+</style></head>
+<body>
+  <label for="skin">Skin</label>
+  <select id="skin" data-setting="skin">
+    <option value="amber">Orange VFD</option>
+    <option value="blue">Blue VFD</option>
+    <option value="classic">Classic VFD</option>
+  </select>
+  <div id="formatRow" hidden>
+    <label for="format">Format</label>
+    <select id="format" data-setting="format">
+      <option value="24">24-hour</option>
+      <option value="12">12-hour with AM/PM</option>
+    </select>
+  </div>
+  <label class="inline"><input type="checkbox" id="legend" data-setting="legend" checked> Show the HRS / MIN legend</label>
+  <script src="settings.js"></script>
+</body></html>

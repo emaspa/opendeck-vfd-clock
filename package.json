@@ -1,0 +1,13 @@
+{
+  "name": "opendeck-vfd-clock",
+  "version": "0.1.0",
+  "description": "OpenDeck plugin: hours and minutes keys in the InfoPanel VFD style",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "./build.sh",
+    "test": "node --test test/",
+    "install-plugin": "./install.sh"
+  }
+}
