@@ -8,6 +8,8 @@ The plugin has three actions, Hours, Minutes and Seconds. Put them side by side 
 
 Each key picks its own skin. Orange VFD, Blue VFD and Classic VFD use the same palettes as the InfoPanel profiles. Each key can also hide its HRS, MIN or SEC legend chip, which makes the digits bigger.
 
+With [OpenXLR](https://github.com/emaspa/openxlr) installed, the keys ignore their own skin and wear OpenXLR's, switching when you change it there. The VFD skins pick the matching face set. Any other skin draws the clock in that skin's colours, on the same card as OpenXLR's own deck keys. `bin/skin-palette.mjs` and `bin/skin-palettes.json` are copies from the OpenXLR deck plugin.
+
 ## Install
 
 ```sh
