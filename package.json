@@ -4,7 +4,7 @@
   "description": "OpenDeck plugin: hours and minutes keys in the InfoPanel VFD style",
   "private": true,
   "type": "module",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "scripts": {
     "build": "./build.sh",
     "test": "node --test test/",

@@ -35,3 +35,7 @@ It needs python3 with Pillow and numpy, ImageMagick, and three fonts in `~/.loca
 ```sh
 npm test
 ```
+
+## License
+
+GPL-3.0-only, see [LICENSE](LICENSE).
